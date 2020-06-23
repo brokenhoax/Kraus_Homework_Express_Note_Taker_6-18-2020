@@ -8,6 +8,8 @@ const routes = require('./routes/handlers');
 const PORT = process.env.PORT || 9001;
 const app = express();
 
+app.use(express.static('public'));
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(methodOverride('_method'));
