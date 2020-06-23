@@ -16,7 +16,7 @@ h1 {
 }
 
 form {
-  position: fixed;
+  position: absolute;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -24,7 +24,6 @@ form {
   width: 500px;
   align-items: center;
   margin: 0 auto;
-  position: fixed;
   left: 0;
   right: 0;
 }

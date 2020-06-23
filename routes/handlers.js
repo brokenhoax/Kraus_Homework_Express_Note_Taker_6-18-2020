@@ -21,6 +21,8 @@ router.get('/', function (req, res) {
 router.post('/add', (req, res) => {
 
   const noteTitle = req.body.note_title;
+  const noteOwner = req.body.note_owner;
+  const noteContents = req.body.contents;
 
   orm.insertOne(noteTitle, function(error, note){
     if (error) {
@@ -29,13 +31,13 @@ router.post('/add', (req, res) => {
       });
     }
     return res.json({
-      note_title: noteTitle,
       note_id: note.insertId,
-      is_favorite: 0 // Zero for False , One for True
+      note_title: noteTitle,
+      note_owner: noteOwner,
+      contents: note.contents
+      // is_favorite: 0 // Zero for False , One for True
     });
   });
-
-
 });
 
 
