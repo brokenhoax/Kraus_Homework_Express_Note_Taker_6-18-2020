@@ -36,13 +36,13 @@ form button {
   width: 100px;
 }
 
-.content .content-burger {
+.content .content-note {
   width: 500px;
   margin: 0 auto;
   overflow: auto;
   margin-top: 10em;
 }
-.content .content-burger__list {
+.content .content-note__list {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -53,12 +53,12 @@ form button {
   margin-top: 20px;
 }
 
-.content .content-burger__list img {
+.content .content-note__list img {
   height: 70px;
   border-radius: 4px;
 }
 
-.content .content-burger__list p {
+.content .content-note__list p {
   color: whitesmoke;
   font-size: 24px;
 }

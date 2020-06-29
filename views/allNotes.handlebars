@@ -1,0 +1,30 @@
+{{> header}}
+
+<div class="all-notes">
+
+  <div class="favorites-section">
+    <h2>Favorite Notes</h2>
+      {{#each notes}}
+      {{#if is_favorite}}
+        <div class="note" data-id="{{note_id}}">
+          <img src='../images/notepadicon.png' alt="">
+          <p>{{note_title}}</p>
+          <button class="btn btn-default" data-id="{{note_id}}">Delete</button>
+        </div>
+      {{/if}}
+    {{/each}}
+  </div>
+
+  <div class="unfavorites-section">
+    <h2>Unfavorite Notes</h2>
+    {{#each notes}}
+      {{#unless is_favorite}}
+        <div class="note" data-id="{{note_id}}">
+          <img src='../images/notepadicon.png' alt="">
+          <p>{{note_title}}</p>
+          <button class="btn btn-default" data-id="{{note_id}}">Delete</button>
+        </div>
+      {{/unless}}
+    {{/each}}
+  </div>
+</div>  

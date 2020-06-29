@@ -1,5 +1,5 @@
 /* All CSS */
-.all-burgers {
+.all-notes {
   display: flex;
   justify-content: space-around;
   margin-top: 2em;
@@ -14,11 +14,11 @@
   width: 500px;
 }
 
-.all-burgers img {
+.all-notes img {
   height: 100px;
 }
 
-.all-burgers .burger {
+.all-notes .note {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -28,14 +28,14 @@
   margin-top: 20px;
 }
 
-.burger p {
+.note p {
   font-size: 24px;
 }
 
-.favorites-section .burger {
+.favorites-section .note {
   background: #e8d1dd;
 }
 
-.unfavorites-section .burger {
+.unfavorites-section .note {
   background: #f5b9ac;
 }

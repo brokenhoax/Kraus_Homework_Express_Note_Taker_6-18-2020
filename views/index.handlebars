@@ -1,3 +1,5 @@
+{{> header}}
+
 <div class='container content'> 
   <h1> Note Taker App</h1>
 
@@ -9,9 +11,9 @@
     <button type='submit' class='btn btn-default'>Add note</button>
   </form>
 
-  <div class='content-burger'>
+  <div class='content-note'>
     {{#each notes}} 
-      <div class='content-burger__list' id={{id}}>
+      <div class='content-note__list' id={{id}}>
         <img src='../images/notepadicon.png' alt="">
         <p>{{note_title}}</p>
         <button class='btn btn-default favorites' data-id='{{note_id}}' data-state='{{is_favorite}}'>

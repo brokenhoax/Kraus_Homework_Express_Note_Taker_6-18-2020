@@ -6,13 +6,13 @@
   flex-direction: column;
 
 }
-.main-favorites__burgers {
+.main-favorites__notes {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
 }
 
-.main-favorites__burgers .content-burger__list {
+.main-favorites__notes .content-note__list {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,11 +24,11 @@
   margin: 20px;
 }
 
-.main-favorites__burgers .content-burger__list img {
+.main-favorites__notes .content-note__list img {
   height: 70px;
   border-radius: 4px;
 }
 
-.main-favorites__burgers .content-burger__list p {
+.main-favorites__notes .content-note__list p {
   font-size: 24px;
 }
