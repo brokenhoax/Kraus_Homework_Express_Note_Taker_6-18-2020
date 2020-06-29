@@ -35,7 +35,15 @@ router.get('/all', (req, res) => {
 
 
 router.get('/favorites', (req, res) => {
-  res.render('favorites');
+  orm.selectAllBy('is_favorite', true, function (error, notes) {
+    if (error) {
+      return res.status(501).json({
+        message: 'Not able to query the database by favorite.'
+      });
+    } 
+    
+    res.render('favorites', { notes, style: 'favorite' });
+  });
 });
 
 // END
@@ -88,14 +96,14 @@ router.delete('/delete/:id', (req, res) => {
 // END
 
 
-//UPDATE 
+//UPDATE HANDLER
 
 router.put('/:id/:value', (req, res) => {
 
   const id = req.params.id; 
-  const condition = JSON.parse(req.params.value); 
+  const value = JSON.parse(req.params.value); 
 
-  orm.updateOne(condition, id, function(error, note){
+  orm.updateOne(value, id, function(error, note){
     if (error) {
       return res.status(501).json({
         message: 'Not able to add note to your favorites list.'

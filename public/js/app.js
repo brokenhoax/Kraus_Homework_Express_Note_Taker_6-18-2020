@@ -84,10 +84,10 @@ $('.all-notes .note button').on('click', function() {
 });;
 
 
-// UPDATE Section
+// FAVORITE OR UNFAVORITE NOTE
 
-const addBurgerToFavorite = (note) => {
-  const id = note.id;
+const addNoteToFavorite = (note) => {
+  const id = note.note_id;
   $(`#${id}`).remove();
   return location.reload();
 }
@@ -101,12 +101,12 @@ $(document).on('click', '.favorites', function() {
   const id = $(this).attr('data-id');
   const value = $(this).attr('date-state');
   let condition = value === '0' ? false : true;
-
+  
   $.ajax({
-    url: `/${id}/${condition}`,
+    url: `/${id}/${!condition}`,
     method: 'PUT'
   })
-  .then(addBurgerToFavorite)
+  .then(addNoteToFavorite)
   .catch(addNoteToFavoriteFail);
   
 });

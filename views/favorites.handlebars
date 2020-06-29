@@ -1,2 +1,16 @@
 {{> header}}
-<h2>I am the Favorite Notes</h2>
+
+<div class="main-favorites"> 
+  <h2> Your Favorited Notes </h2>
+  <div class="main-favorites__notes">
+    {{#each notes}} 
+    <div class='content-note__list' id={{id}}>
+      <img src='../images/notepadicon.png' alt="">
+      <p>{{note_title}}</p>
+      <button class='btn btn-default favorites' data-id='{{note_id}}' data-state='{{is_favorite}}'>
+        {{#if is_favorite}} unfavorite {{else}} add to Favorite {{/if}}
+      </button>
+    </div>
+    {{/each}}
+  </div>
+</div>
