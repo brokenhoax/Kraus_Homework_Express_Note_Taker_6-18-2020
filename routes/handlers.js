@@ -4,8 +4,11 @@ const router = express.Router();
 const orm = require('../config/orm');
 const { json } = require('body-parser');
 
+
+// GET
+
 router.get('/', function (req, res) {
-  orm.selectAll(function (error, notes) {
+  orm.selectAllBy('is_favorite', false, function (error, notes) {
     if (error) {
       return res.status(501).json({
         message: 'Not able to query the database'
@@ -35,6 +38,7 @@ router.get('/favorites', (req, res) => {
   res.render('favorites');
 });
 
+// END
 
 
 // POST
@@ -58,6 +62,8 @@ router.post('/add', (req, res) => {
   });
 });
 
+// END
+
 
 //DELETE 
 
@@ -79,15 +85,17 @@ router.delete('/delete/:id', (req, res) => {
   });
 });
 
+// END
+
 
 //UPDATE 
 
 router.put('/:id/:value', (req, res) => {
 
   const id = req.params.id; 
-  const value = req.params.value; 
+  const condition = JSON.parse(req.params.value); 
 
-  orm.updateOne(id, function(error, note){
+  orm.updateOne(condition, id, function(error, note){
     if (error) {
       return res.status(501).json({
         message: 'Not able to add note to your favorites list.'
@@ -99,6 +107,11 @@ router.put('/:id/:value', (req, res) => {
   });
 });
 
- 
+// END
+
+
+// EXPORT
 
 module.exports = router; 
+
+// END

@@ -86,18 +86,28 @@ $('.all-notes .note button').on('click', function() {
 
 // UPDATE Section
 
+const addBurgerToFavorite = (note) => {
+  const id = note.id;
+  $(`#${id}`).remove();
+  return location.reload();
+}
+
+const addNoteToFavoriteFail = () => {
+  alert('Failed to add note to favorites list');
+}
+
 $(document).on('click', '.favorites', function() {
 
   const id = $(this).attr('data-id');
-  const value = $(this).attr();
+  const value = $(this).attr('date-state');
   let condition = value === '0' ? false : true;
 
   $.ajax({
     url: `/${id}/${condition}`,
     method: 'PUT'
   })
-  .then()
-  .catch();
+  .then(addBurgerToFavorite)
+  .catch(addNoteToFavoriteFail);
   
 });
 
